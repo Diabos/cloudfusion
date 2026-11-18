@@ -50,9 +50,12 @@ export function Login() {
               ))}
             </div>
           </div>
-          <div className="flex items-center gap-2 text-xs text-slate-400">
-            <ShieldCheck size={15} className="text-emerald-300" />
-            Google Drive integration · free to use
+          <div className="flex flex-wrap items-center justify-between gap-3 text-xs text-slate-400">
+            <div className="flex items-center gap-2">
+              <ShieldCheck size={15} className="text-emerald-300" />
+              Google Drive integration · free to use
+            </div>
+            <span className="text-slate-400">Made by Ansh Verma</span>
           </div>
         </div>
         <div className={`p-7 sm:p-12 lg:p-14 ${mode === "dark" ? "bg-[#111b2e]" : "bg-white"}`}>
