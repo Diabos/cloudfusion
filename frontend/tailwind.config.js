@@ -52,6 +52,10 @@ export default {
           colors: {
             background: "#0b1120",
             foreground: "#e5edf8",
+            content1: "#111b2e",
+            content2: "#172236",
+            content3: "#1f2c44",
+            divider: "#263650",
             primary: {
               DEFAULT: "#60a5fa",
               foreground: "#0b1120",
@@ -59,6 +63,16 @@ export default {
             default: {
               DEFAULT: "#172236",
               foreground: "#a9b8cc",
+              50: "#24344e",
+              100: "#263650",
+              200: "#344863",
+              300: "#7185a0",
+              400: "#91a4be",
+              500: "#a9b8cc",
+              600: "#c1ccda",
+              700: "#d3dce8",
+              800: "#e5edf8",
+              900: "#f4f7fb",
             },
             danger: {
               DEFAULT: "#f87171",

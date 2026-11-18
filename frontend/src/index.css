@@ -35,8 +35,30 @@ body {
   transition: background-color 180ms ease, color 180ms ease;
 }
 
+html.dark,
+html.dark body {
+  background-color: var(--cf-bg);
+  color: var(--cf-text);
+}
+
 * {
   box-sizing: border-box;
+}
+
+.dark .text-foreground {
+  color: var(--cf-text) !important;
+}
+
+.dark .text-default-400 {
+  color: #91a4be;
+}
+
+.dark .text-default-500 {
+  color: #a9b8cc;
+}
+
+.dark .text-default-600 {
+  color: #c1ccda;
 }
 
 .light .text-default-400 {
