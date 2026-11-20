@@ -90,10 +90,19 @@ export class ConnectedAccountService {
     if (!account) throw Errors.notFound("Connected account not found");
 
     const { accessToken, refreshToken } = decryptAccountTokens(account);
-    const quota = await this.fetchAndStoreQuota(accountId, accessToken, refreshToken);
-    await this.syncExistingFiles(userId, accountId, accessToken, refreshToken);
-    
-    return quota; // Fix: We must return the quota object here so the controller has something to send as JSON!
+    try {
+      const quota = await this.fetchAndStoreQuota(accountId, accessToken, refreshToken);
+      await this.syncExistingFiles(userId, accountId, accessToken, refreshToken);
+      return quota;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      if (/insufficient authentication scopes|403|permission denied/i.test(message)) {
+        throw Errors.forbidden(
+          "Google Drive permission expired or is insufficient. Disconnect this account, then connect it again and approve the Drive permission."
+        );
+      }
+      throw err;
+    }
   }
 
   private async fetchAndStoreQuota(accountId: string, accessToken: string, refreshToken: string) {

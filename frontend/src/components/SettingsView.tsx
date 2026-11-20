@@ -203,6 +203,15 @@ export function SettingsView({ summary, onChange }: { summary: StorageSummary | 
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0">
+                  <Button
+                    size="sm"
+                    variant="flat"
+                    isLoading={connecting}
+                    startContent={!connecting && <RefreshCw size={14} />}
+                    onPress={connectDrive}
+                  >
+                    Reconnect
+                  </Button>
                   <Button 
                     size="sm" 
                     variant="flat" 

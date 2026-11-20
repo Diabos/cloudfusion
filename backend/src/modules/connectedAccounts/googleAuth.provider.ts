@@ -30,6 +30,7 @@ export class GoogleAuthProvider implements IGoogleAuthProvider {
     return client.generateAuthUrl({
       access_type: "offline",
       prompt: "consent select_account",
+      include_granted_scopes: true,
       scope: ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/userinfo.email"],
       state,
     });
